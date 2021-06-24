@@ -1,0 +1,31 @@
+server.port: 8089
+spring:
+  application.name: boot-admin
+  boot.admin:
+    context-path: /
+    instance-auth.enabled: false
+management:
+  metrics:
+    export:
+      atlas:
+        enabled: false
+        step: 5s
+        uri: "http://localhost:7101/api/v1/publish"
+  endpoints:
+    health.binders.enabled: true
+    enabled-by-default: true
+    web:
+      exposure.include: '*'
+      cors:
+        allowed-origins: '*'
+    jmx.exposure.include: '*'
+logging:
+  file:
+    name: ./logs/${spring.application.name}.log
+    max-size: 1MB
+    total-size-cap: 3MB
+    max-history: 2
+    clean-history-on-start: false
+  pattern.rolling-file-name: ./logs/${spring.application.name}-%d{yyyy-MM-dd}.%i.log
+  level:
+    de.codecentric.boot.admin: trace
