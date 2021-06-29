@@ -1,5 +1,4 @@
 FROM openjdk:8u292-jre
-COPY . /usr/src/myapp
-WORKDIR /usr/src/myapp
-RUN javac Main.java
-CMD ["java", "Main"]
+COPY ./target/spring-boot-admin.jar /opt/spring-boot-admin/
+WORKDIR /opt/spring-boot-admin
+CMD ["java -jar", "spring-boot-admin.jar"]
