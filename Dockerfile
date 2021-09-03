@@ -1,4 +1,5 @@
 FROM openjdk:8u292-jre
-COPY ./target/spring-boot-admin.jar /opt/spring-boot-admin/
+ARG JAR_FILE=spring-boot-admin.jar
+COPY target/${JAR_FILE} /opt/spring-boot-admin/${JAR_FILE}
 WORKDIR /opt/spring-boot-admin
-CMD ["java -jar", "spring-boot-admin.jar"]
+ENTRYPOINT ["java","-jar","${JAR_FILE}}"]
