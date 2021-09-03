@@ -1,6 +1,6 @@
 FROM openjdk:8u292-jre
-ARG JAR_FILE=spring-boot-admin.jar
+
 VOLUME /tmp
-ADD target/${JAR_FILE} /opt/spring-boot-admin/${JAR_FILE}
+ADD target/spring-boot-admin.jar /opt/spring-boot-admin/spring-boot-admin.jar
 WORKDIR /opt/spring-boot-admin
-ENTRYPOINT ["java","-jar","${JAR_FILE}"]
+ENTRYPOINT ["java","-jar","spring-boot-admin.jar"]
